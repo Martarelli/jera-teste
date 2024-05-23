@@ -1,0 +1,23 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100vw;
+    padding: 1rem 3rem;
+}
+
+.links {
+    display: flex;
+    gap: 2rem;
+}
+
+.links a {
+    text-decoration: none;
+    transition: 150ms ease-in-out;
+}
+.links a:hover {
+    font-weight: 600;
+    text-decoration: underline;
+}
+
