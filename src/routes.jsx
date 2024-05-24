@@ -10,6 +10,7 @@ function MainRoutes() {
     <BrowserRouter>
       <Routes>
         <Route path="*" element={<Navigate to="/login" />} />
+        <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/register" element={<Register />} />
