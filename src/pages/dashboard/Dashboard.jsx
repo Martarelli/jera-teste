@@ -12,8 +12,7 @@ export default function Dashboard() {
 
   async function getData(actualPage) {
     try {
-      const apiKey =
-        "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYzFkZWYzOWYxMjUyNjI1Yjc3NjA1MjUzNTdkMmU2YiIsInN1YiI6IjY2NGZmOGU5ZmFiZmE2ZTQzYjA2ODVmYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dCwqwYOPhgzo0zT8Nf7UzHW-7AsquSyYUssJ7C9nzug";
+      const apiKey = import.meta.env.VITE_FIREBASE_TMDB_API_KEY;
       const response = await axios
         .create({
           baseURL: "https://api.themoviedb.org",
@@ -64,16 +63,22 @@ export default function Dashboard() {
       <div className="movieCard">
         {movieList.map((movie, key) => (
           <div key={key} className="card" id="card">
-            <h2 className="movieTitle">{movie.title}</h2>
-            <span className="movieAverage">
-              Nota {movie.vote_average.toFixed(2)}
-            </span>
             <div className="movieImg">
               <img
                 src={"https://image.tmdb.org/t/p/w342" + movie.poster_path}
                 alt=""
               />
             </div>
+            <div className="movieInformation">
+              <h1 className="movieTitle">Titulo: {movie.title}</h1>
+              <h3 className="movieOriginalTitle">
+                Titulo Original: {movie.original_title}
+              </h3>
+              <span className="movieDescription">{movie.overview}</span>
+            </div>
+            <span className="movieAverage">
+              Nota {movie.vote_average.toFixed(2)}
+            </span>
           </div>
         ))}
       </div>

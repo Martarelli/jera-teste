@@ -19,28 +19,74 @@
 
 .card {
   display: flex;
-  flex-direction: column;
+
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  gap:1rem;
   padding: 1rem;
-  width: 20%;
-  height: 50vh;
+  width: 95%;
+  height: fit-content;
   background-color: rgba(10, 10, 10, .5);
   border-radius: 1rem;
   box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.75);
+  overflow: hidden;              
 }
 
-.movieTitle {
-  text-align: center;
+.card .movieImg {
+  width: 25vw;
+  height: 40vh;
 }
 
-.movieImg {
-  width: 70%;
-  height: 80%;
-}
-
-.movieImg img {
+.card .movieImg img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.card .movieInformation{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+  width: 75%;  
+}
+
+.card .movieTitle {
+  font-size: 2.5rem;
+}
+
+.card .movieOriginalTitle {
+  font-size: 0.8rem;
+}
+
+
+.card .movieDescription {
+  font-size: 1.2rem;
+}
+
+.card .movieAverage {
+  font-weight: 800;
+}
+
+
+@media (max-width: 1000px) {
+  .title__container {
+    font-size: 0.5rem;
+  }
+
+  .card .movieImg {
+    width: 50%;
+  }
+
+  .card .movieTitle {
+    font-size: 1rem;
+  }
+
+  .card .movieDescription {
+    font-size: 0.75rem;
+  }
+
+  .card .movieAverage {
+    display: none;
+  }
 }
