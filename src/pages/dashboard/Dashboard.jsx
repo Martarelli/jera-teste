@@ -2,7 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "../../assets/styles/dashboard/dashboard.css";
 import Buttons from "../../components/buttons/Buttons";
-import Loading from "../../components/loading/loading";
+import Loading from "../../components/loading/Loading";
+import Header from "../../components/header/Header";
 
 export default function Dashboard() {
   const [movieList, setMovieList] = useState([]);
@@ -24,9 +25,9 @@ export default function Dashboard() {
         .get(`/3/movie/popular?language=pt-BR&page=${actualPage}`);
       console.log(response);
       setMovieList(response.data.results);
-      setTimeout(()=> {
+      setTimeout(() => {
         setIsOpenLoading(false);
-      }, 500)
+      }, 750);
     } catch (error) {
       alert(
         "Ocorreu um erro ao processar sua requisição...\nError fetching data: " +
@@ -39,10 +40,14 @@ export default function Dashboard() {
 
   const nextPage = () => {
     setPage((prevPage) => prevPage + 1);
+    setIsOpenLoading(true);
   };
 
   const previowsPage = () => {
-    page > 1 ? setPage((prevPage) => prevPage - 1) : "";
+    if (page > 1) {
+      setPage((prevPage) => prevPage - 1);
+      setIsOpenLoading(true);
+    }
   };
 
   useEffect(() => {
@@ -51,8 +56,11 @@ export default function Dashboard() {
 
   return (
     <div>
-      <Loading isOpen={isOpenLoading}/>
-      <h1 className="titlePage">Filmes Populares</h1>
+      <Loading isOpen={isOpenLoading} />
+      <Header />
+      <div className="title__container">
+        <h1 className="titlePage">Filmes Populares</h1>
+      </div>
       <div className="movieCard">
         {movieList.map((movie, key) => (
           <div key={key} className="card" id="card">

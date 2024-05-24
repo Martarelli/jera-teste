@@ -10,8 +10,6 @@ import {
 import { auth } from "../../services/firebase";
 import { Link, useNavigate } from "react-router-dom";
 
-// import { db } from './firebase';
-// import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -28,6 +26,8 @@ export default function Login() {
         (response) => {
           console.log(response);
           sessionStorage.setItem("accessToken", response.user.accessToken);
+          sessionStorage.setItem("userEmail", response.user.email);
+          sessionStorage.setItem("userName", email.split('@')[0].toUpperCase());
           navigate("/dashboard");
         }
       );
@@ -42,6 +42,8 @@ export default function Login() {
       await signInWithPopup(auth, provider).then((response) => {
         console.log(response);
         sessionStorage.setItem("accessToken", response.user.accessToken);
+        sessionStorage.setItem("userEmail", response.user.email);
+        sessionStorage.setItem("userName", response.user.displayName.toUpperCase());
       });
       navigate("/dashboard");
     } catch (error) {
@@ -51,7 +53,7 @@ export default function Login() {
 
   return (
     <div>
-      <div className="container">
+      <div className="container__login">
         <form onSubmit={handleSubmit}>
           <div className="inputContainer">
             <label htmlFor="email">Email</label>

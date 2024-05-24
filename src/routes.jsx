@@ -3,6 +3,7 @@ import Login from "./pages/login/Login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Auth from "./components/auth/auth";
 import Register from "./pages/register/Register";
+import Logout from "./pages/logout/Logout";
 
 function MainRoutes() {
   return (
@@ -10,6 +11,7 @@ function MainRoutes() {
       <Routes>
         <Route path="*" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="/register" element={<Register />} />
         <Route
           path="/dashboard"

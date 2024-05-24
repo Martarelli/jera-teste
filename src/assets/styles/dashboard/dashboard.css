@@ -1,5 +1,8 @@
-.titlePage {
-  padding: 1rem 0 0;
+.title__container {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.35);
 }
 
 .movieCard {
@@ -30,6 +33,7 @@
 .movieTitle {
   text-align: center;
 }
+
 .movieImg {
   width: 70%;
   height: 80%;

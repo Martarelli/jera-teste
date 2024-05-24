@@ -1,4 +1,4 @@
-.container__login {
+.container__register {
     width: 100%;
     height: 100%;
 
@@ -8,7 +8,7 @@
     justify-content: center;
 }
 
-.container__login form {
+.container__register form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,7 +20,7 @@
     box-shadow: 1rem 1rem 1.5rem rgba(0, 0, 0, 0.75);
 }
 
-.container__login form .inputContainer {
+.container__register form .inputContainer {
     display: flex;
     gap: 0.2rem 0;
     align-items: flex-start;
@@ -28,12 +28,12 @@
     width: 100%;
 }
 
-.container__login form .inputContainer label {
+.container__register form .inputContainer label {
     font-weight: 400;
     font-size: 1.25rem;
 }
 
-.container__login form .inputContainer input {
+.container__register form .inputContainer input {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -47,7 +47,7 @@
     border-radius: 0.75rem;
 }
 
-.container__login form .button {
+.container__register form .button {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -66,32 +66,28 @@
     color: #FFFFFF;
 }
 
-.container__login #google {
-    background-color: #00800d;
-}
-
-.container__login form .button:hover{
+.container__register form .button:hover{
     cursor: pointer;
     opacity: 0.8;
 }
 
-.container__login form .button img {
-    height: 2rem;
+.container__register form .button img {
+    height: 1rem;
 }
 
-.container__login form .footer{
+.container__register form .footer{
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.35rem;
 }
 
-.container__login form .footer p{
+.container__register form .footer p{
     font-weight: 400;
     font-size: 1rem;
 }
 
-.container__login form .footer a{
+.container__register form .footer a{
     font-weight: 600;
     font-size: 1rem;
     color: #5C73DB;

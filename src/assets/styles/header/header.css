@@ -14,10 +14,10 @@ header {
 
 .links a {
     text-decoration: none;
-    transition: 150ms ease-in-out;
+    color: rgb(235, 235, 235);
+    transition: 500ms ease-in-out;
 }
 .links a:hover {
-    font-weight: 600;
-    text-decoration: underline;
+    scale: 1.2;
 }
 

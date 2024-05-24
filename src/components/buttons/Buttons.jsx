@@ -9,7 +9,7 @@ export default function Buttons({ nextPage, previowsPage, actualPage }) {
   };
 
   return (
-    <div className="container">
+    <div className="buttons">
         <button onClick={previowsPage}>{"<<"} Página Anterior</button>
         <span>Página: {actualPage}</span>
         <button onClick={nextPage}>Próx Página {">>"}</button>
