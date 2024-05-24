@@ -1,0 +1,25 @@
+.loading__container{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.98);
+}
+
+.loading__animation {
+  animation: is-rotating 1s infinite;
+  width: 4rem;
+  height: 4rem;
+  border: 3px solid #24CCDB;
+  border-top-color: rgba(34, 35, 68, 1);
+  border-radius: 200rem;
+}
+@keyframes is-rotating {
+    to {
+      transform: rotate(1turn);
+    }
+}
