@@ -29,9 +29,9 @@ export function Login() {
         (response) => {
           console.log(response);
           sessionStorage.setItem("accessToken", response.user.accessToken);
+          navigate("/dashboard");
         }
       );
-      navigate("/dashboard");
     } catch (error) {
       console.log(error);
     }
