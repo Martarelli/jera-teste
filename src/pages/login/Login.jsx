@@ -1,5 +1,4 @@
 import { useState } from "react";
-import logo from "../../assets/img/logo.png";
 import arrow from "../../assets/img/arrow.png";
 import google from "../../assets/img/google.svg";
 import "../../assets/styles/login/login.css";
@@ -9,12 +8,12 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../../services/firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // import { db } from './firebase';
 // import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 
-export function Login() {
+export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -53,10 +52,6 @@ export function Login() {
   return (
     <div>
       <div className="container">
-        <header className="header">
-          <img src={logo} alt="logo" />
-          <span>Faça seu Login :)</span>
-        </header>
         <form onSubmit={handleSubmit}>
           <div className="inputContainer">
             <label htmlFor="email">Email</label>
@@ -71,14 +66,14 @@ export function Login() {
           </div>
 
           <div className="inputContainer">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Senha</label>
             <input
               type="password"
               name="password"
               id="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-              placeholder="Digite seu Password..."
+              placeholder="Digite sua senha..."
             />
           </div>
 
@@ -88,18 +83,18 @@ export function Login() {
             type="button"
             onClick={handleGoogleLogin}
           >
-            Login With
+            Login com
             <img src={google} alt="google" />
           </button>
 
           <button className="button">
-            Login With Email/Password
+            Login com Email/Senha
             <img src={arrow} alt="arrow" />
           </button>
 
           <div className="footer">
             <p>Não tem usuário?</p>
-            <a href="">Criar Usuário</a>
+            <Link to='/register'>Criar Usuário</Link>
           </div>
         </form>
       </div>

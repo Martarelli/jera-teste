@@ -1,11 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import MainRoutes from './routes.jsx'
-import './index.css'
+import ReactDOM from "react-dom/client";
+import MainRoutes from "./routes.jsx";
+import "./index.css";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-    <BrowserRouter>
-      <MainRoutes/>
-    </BrowserRouter>
-)
+ReactDOM.createRoot(document.getElementById("root")).render(<MainRoutes />);

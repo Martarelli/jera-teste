@@ -2,11 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "../../assets/styles/dashboard/dashboard.css";
 
-export function Dashboard() {
+export default function Dashboard() {
   const [movieList, setMovieList] = useState([]);
   const [page, setPage] = useState(1);
 
-  async function getData() {
+  async function getData(actualPage) {
     try {
       const apiKey =
         "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYzFkZWYzOWYxMjUyNjI1Yjc3NjA1MjUzNTdkMmU2YiIsInN1YiI6IjY2NGZmOGU5ZmFiZmE2ZTQzYjA2ODVmYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dCwqwYOPhgzo0zT8Nf7UzHW-7AsquSyYUssJ7C9nzug";
@@ -18,7 +18,7 @@ export function Dashboard() {
             Authorization: `Bearer ${apiKey}`,
           },
         })
-        .get(`/3/movie/popular?language=pt-BR&page=${page}`);
+        .get(`/3/movie/popular?language=pt-BR&page=${actualPage}`);
       console.log(response);
       setMovieList(response.data.results);
     } catch (error) {
@@ -32,7 +32,7 @@ export function Dashboard() {
   }
 
   useEffect(() => {
-    getData();
+    getData(page);
   }, [page]);
 
   return (
