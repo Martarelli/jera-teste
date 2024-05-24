@@ -1,9 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "../../assets/styles/dashboard/dashboard.css";
+import Buttons from "../../components/buttons/Buttons";
+import Loading from "../../components/loading/loading";
 
 export default function Dashboard() {
   const [movieList, setMovieList] = useState([]);
+  const [isOpenLoading, setIsOpenLoading] = useState(true);
   const [page, setPage] = useState(1);
 
   async function getData(actualPage) {
@@ -21,6 +24,9 @@ export default function Dashboard() {
         .get(`/3/movie/popular?language=pt-BR&page=${actualPage}`);
       console.log(response);
       setMovieList(response.data.results);
+      setTimeout(()=> {
+        setIsOpenLoading(false);
+      }, 500)
     } catch (error) {
       alert(
         "Ocorreu um erro ao processar sua requisição...\nError fetching data: " +
@@ -31,28 +37,43 @@ export default function Dashboard() {
     }
   }
 
+  const nextPage = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
+
+  const previowsPage = () => {
+    page > 1 ? setPage((prevPage) => prevPage - 1) : "";
+  };
+
   useEffect(() => {
     getData(page);
   }, [page]);
 
   return (
     <div>
+      <Loading isOpen={isOpenLoading}/>
       <h1 className="titlePage">Filmes Populares</h1>
       <div className="movieCard">
         {movieList.map((movie, key) => (
           <div key={key} className="card" id="card">
             <h2 className="movieTitle">{movie.title}</h2>
-            <span className="movieAverage">Nota {movie.vote_average.toFixed(2)}</span>
+            <span className="movieAverage">
+              Nota {movie.vote_average.toFixed(2)}
+            </span>
             <div className="movieImg">
-              <img src={'https://image.tmdb.org/t/p/w342' + movie.poster_path} alt="" />
+              <img
+                src={"https://image.tmdb.org/t/p/w342" + movie.poster_path}
+                alt=""
+              />
             </div>
           </div>
         ))}
       </div>
-      <div className="buttons">
-        <button onClick={() => {page > 1 ? setPage(page - 1): ''}}>Pag -</button>
-        <button onClick={() => {setPage(page + 1)}}>Pag +</button>
-      </div>
+      <Buttons
+        nextPage={nextPage}
+        previowsPage={previowsPage}
+        actualPage={page}
+      />
     </div>
   );
 }
