@@ -28,7 +28,7 @@ export default function Login() {
           sessionStorage.setItem("accessToken", response.user.accessToken);
           sessionStorage.setItem("userEmail", response.user.email);
           sessionStorage.setItem("userName", email.split('@')[0].toUpperCase());
-          navigate("/dashboard");
+          navigate("/popular");
         }
       );
     } catch (error) {
@@ -43,9 +43,9 @@ export default function Login() {
         console.log(response);
         sessionStorage.setItem("accessToken", response.user.accessToken);
         sessionStorage.setItem("userEmail", response.user.email);
-        sessionStorage.setItem("userName", response.user.displayName.toUpperCase());
+        sessionStorage.setItem("userName", response.user.displayName.split(' ')[0].toUpperCase());
       });
-      navigate("/dashboard");
+      navigate("/popular");
     } catch (error) {
       console.log(error);
     }

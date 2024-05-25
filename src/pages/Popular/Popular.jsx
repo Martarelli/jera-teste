@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "../../assets/styles/dashboard/dashboard.css";
 import Buttons from "../../components/buttons/Buttons";
 import Loading from "../../components/loading/Loading";
 import Header from "../../components/header/Header";
 
-export default function Dashboard() {
+import "../../assets/styles/movieListCards/movieListCards.css";
+
+export default function Popular() {
   const [movieList, setMovieList] = useState([]);
   const [isOpenLoading, setIsOpenLoading] = useState(true);
   const [page, setPage] = useState(1);
