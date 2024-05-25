@@ -67,7 +67,12 @@
 .card .movieAverage {
   font-weight: 800;
 }
-
+.movieListEmpty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vw;
+}
 
 @media (max-width: 1000px) {
   .title__container {

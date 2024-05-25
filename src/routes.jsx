@@ -5,6 +5,7 @@ import Auth from "./components/auth/auth";
 import Register from "./pages/register/Register";
 import Logout from "./pages/logout/Logout";
 import TopRated from "./pages/topRated/TopRated";
+import Search from "./pages/search/Search";
 
 function MainRoutes() {
   return (
@@ -27,6 +28,14 @@ function MainRoutes() {
           element={
             <Auth>
               <TopRated />
+            </Auth>
+          }
+        />
+        <Route
+          path="/search"
+          element={
+            <Auth>
+              <Search />
             </Auth>
           }
         />

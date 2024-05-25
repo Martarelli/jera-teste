@@ -19,9 +19,9 @@ export default function Header() {
     }
   };
 
-  useEffect(()=>{
-    window.addEventListener('resize', handleResize);
-  },[]);
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const name = sessionStorage.getItem("userName");
@@ -37,12 +37,13 @@ export default function Header() {
         <h2>{user}</h2>
       </div>
       {isMobile && (
-        <div className="menu__hamburger" >
+        <div className="menu__hamburger">
           <h2 onClick={toggleMenu}>☰</h2>
         </div>
       )}
       {isMenuOpen && (
         <div className="links__responsive" onClick={toggleMenu}>
+          <Link to="/search">Search Movie</Link>
           <Link to="/popular">Popular</Link>
           <Link to="/toprated">Top Rated</Link>
           <Link to="/logout">Logout</Link>
@@ -50,6 +51,7 @@ export default function Header() {
       )}
 
       <div className="links">
+        <Link to="/search">Search Movie</Link>
         <Link to="/popular">Popular</Link>
         <Link to="/toprated">Top Rated</Link>
         <Link to="/logout">Logout</Link>
