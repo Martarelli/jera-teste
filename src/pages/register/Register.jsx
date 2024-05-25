@@ -58,7 +58,7 @@ export default function Register() {
                 {...register("email")}
                 id="email"
                 value={email}
-                onChange={(event) => setEmail(event.target.value)}
+                onInput={(event) => setEmail(event.target.value)}
                 placeholder="Digite seu email..."
                 autoComplete="off"
               />
@@ -74,7 +74,7 @@ export default function Register() {
                 {...register("password")}
                 id="password"
                 value={password}
-                onChange={(event) => setPassword(event.target.value)}
+                onInput={(event) => setPassword(event.target.value)}
                 placeholder="Digite sua senha..."
               />
             </div>
