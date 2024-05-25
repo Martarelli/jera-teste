@@ -74,6 +74,13 @@
   height: 100vw;
 }
 
+.title__container .inputContainer input {
+  width: 40%;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 1rem;
+}
+
 @media (max-width: 1000px) {
   .title__container {
     font-size: 0.5rem;
