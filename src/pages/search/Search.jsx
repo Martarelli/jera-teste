@@ -26,6 +26,9 @@ export default function Search() {
         .get(`/3/search/movie?language=pt-BR&page=${actualPage}&query=${query}`);
       console.log(response);
       setMovieList(response.data.results);
+      if(response.data.results == 0){
+        setPage(1);
+      }
       setTimeout(() => {
         setIsOpenLoading(false);
       }, 750);
@@ -40,8 +43,10 @@ export default function Search() {
   }
 
   const nextPage = () => {
-    setPage((prevPage) => prevPage + 1);
-    setIsOpenLoading(true);
+    if (movieList.length > 0) {
+      setPage((prevPage) => prevPage + 1);
+      setIsOpenLoading(true);
+    }
   };
 
   const previowsPage = () => {
